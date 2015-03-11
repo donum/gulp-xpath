@@ -1,6 +1,6 @@
 # gulp-xpath
 
-gulp-xpath is a [gulp](https://github.com/wearefractal/gulp) plugin to executes an xpath query on a xml document in a stream and returns the matches as a string.
+gulp-xpath is a [gulp](https://github.com/wearefractal/gulp) plugin to executes an XPath query on a XML document in a stream and returns the matches as a string.
 
 ## Usage
 
