@@ -22,7 +22,7 @@ gulp.src(['./news/*.xml'])
 
 ## Notes
 
-* Frist parameter: _string _ `XPath query`
+* Frist parameter: _string_ `XPath query`
 * Second parameter: _object_ `namespace declarations`
   * `xmlns:xsl="http://www.w3.org/1999/XSL/Transform"` is the default namespace (can't be overwritten)
 * To output an valid XML document, I suggest to use [gulp-wrapper](https://github.com/AntouanK/gulp-wrapper).
