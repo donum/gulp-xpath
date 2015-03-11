@@ -1,0 +1,23 @@
+{
+  "name": "gulp-xpath",
+  "description": "Executes an xpath query on a xml document in a stream and returns the matches as a string.",
+  "main": "index.js",
+  "version": "1.0.0",
+  "keywords": [
+    "gulp",
+    "xpath",
+    "gulpplugin"
+  ],
+  "maintainers": [
+    {
+      "name": "Daniel Schmidt",
+      "email": "daniel.schmidt@tomtom.com",
+      "web": "https://github.com/donum"
+    }
+  ],
+  "dependencies": {
+    "xmldom": "~0.1.19",
+    "xpath": "0.0.7",
+    "through2": "~0.6.3"
+  }
+}
