@@ -9,15 +9,25 @@
     "gulpplugin"
   ],
   "maintainers": [
-    {
-      "name": "Daniel Schmidt",
-      "email": "daniel.schmidt@tomtom.com",
-      "web": "https://github.com/donum"
-    }
+    "Daniel Schmidt <daniel.schmidt@tomtom.com> (https://github.com/donum)"
   ],
   "dependencies": {
+    "gulp-util": "~3.0.1",
     "xmldom": "~0.1.19",
     "xpath": "0.0.7",
     "through2": "~0.6.3"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/donum/gulp-xpath"
+  },
+  "author": "Daniel Schmidt <donum@users.noreply.github.com> (https://github.com/donum)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/donum/gulp-xpath/issues"
+  },
+  "homepage": "https://github.com/donum/gulp-xpath"
 }
