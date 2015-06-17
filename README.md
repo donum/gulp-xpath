@@ -18,6 +18,14 @@ gulp.src(['./news/*.xml'])
 	.pipe(xpath("/news-items/news[@category='git']",{"exsl":"http://exslt.org/common"}))
 	.pipe(concat('git_news.txt'))
 	.pipe(gulp.dest('./news'));
+
+// defining custom function
+gulp.src(['./news/*.xml'])
+	.pipe(xpath("/news-items/news/@category",{},function(node){
+		return '<cat>' + node.toString() + '</cat>';
+	}))
+	.pipe(concat('all_categories.txt'))
+	.pipe(gulp.dest('./news'));
 ```
 
 ## Notes
@@ -25,6 +33,8 @@ gulp.src(['./news/*.xml'])
 * Frist parameter: _string_ `XPath query`
 * Second parameter: _object_ `namespace declarations`
   * `xmlns:xsl="http://www.w3.org/1999/XSL/Transform"` is the default namespace (can't be overwritten)
+* Third parameter (new): _function_ `customFunction(node)`
+  * This optional custom function gets executed on each matched node. Default return value is `node.toString()`.
 * To output an valid XML document, I suggest to use [gulp-wrapper](https://github.com/AntouanK/gulp-wrapper).
 
 ## License
