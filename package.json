@@ -2,7 +2,7 @@
   "name": "gulp-xpath",
   "description": "Executes an xpath query on a xml document in a stream and returns the matches as a string.",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "gulp",
     "xpath",
