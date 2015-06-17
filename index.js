@@ -7,13 +7,20 @@ var PluginError = gutil.PluginError;
 // consts
 const PLUGIN_NAME = 'gulp-xpath';
 
+var custFunc = function(node) {
+	return node.toString();
+}
+
 // plugin level function (dealing with files)
-function gulpXPath(strXPath, objNamespaces) {
+function gulpXPath(strXPath, objNamespaces, customFunction) {
 	if (!strXPath) {
 		throw new PluginError(PLUGIN_NAME, 'Missing xpath text!');
 	}
 	var objNamespaces = objNamespaces || {};
 
+	if (!customFunction) {
+		var customFunction = custFunc;
+	}
 
 	// creating a stream through which each file will pass
 	var stream = through.obj(function(file, enc, cb) {
@@ -28,7 +35,8 @@ function gulpXPath(strXPath, objNamespaces) {
 			file.contents = new Buffer(execute_XPath(
 				file.contents.toString(),
 				strXPath,
-				objNamespaces
+				objNamespaces,
+				customFunction
 			));
 
 		}
@@ -44,7 +52,7 @@ function gulpXPath(strXPath, objNamespaces) {
 	return stream;
 };
 
-function execute_XPath(content, strXPath, objNamespaces) {
+function execute_XPath(content, strXPath, objNamespaces, customFunction) {
 	if (!content) {
 		throw new PluginError(PLUGIN_NAME, 'No content given!');
 	}
@@ -52,6 +60,10 @@ function execute_XPath(content, strXPath, objNamespaces) {
 		throw new PluginError(PLUGIN_NAME, 'Missing xpath text!');
 	}
 	var objNamespaces = objNamespaces || {};
+
+	if (!customFunction) {
+		var customFunction = custFunc;
+	}
 
 	// default namespaces
 	objNamespaces['xsl'] = 'http://www.w3.org/1999/XSL/Transform';
@@ -62,8 +74,8 @@ function execute_XPath(content, strXPath, objNamespaces) {
 	var loops = result.length;
 	var output = '';
 
-	for (i = 0; i < loops; i++) { 
-		output += result[i];
+	for (i = 0; i < loops; i++) {
+		output += customFunction(result[i]);
 	}
 
 	return output;
