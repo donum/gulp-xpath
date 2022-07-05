@@ -1,8 +1,7 @@
 var through = require('through2');
-var gutil = require('gulp-util');
+var PluginError = require('plugin-error');
 var xpath = require('xpath');
 var dom = require('xmldom').DOMParser;
-var PluginError = gutil.PluginError;
 
 // consts
 const PLUGIN_NAME = 'gulp-xpath';
