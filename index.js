@@ -70,12 +70,7 @@ function execute_XPath(content, strXPath, objNamespaces, customFunction) {
 	var doc = new dom().parseFromString( content );
 	var select = xpath.useNamespaces(objNamespaces);
 	var result = select(strXPath, doc);
-	var loops = result.length;
-	var output = '';
-
-	for (i = 0; i < loops; i++) {
-		output += customFunction(result[i]);
-	}
+	var output = result.map(customFunction).join('');
 
 	return output;
 }
