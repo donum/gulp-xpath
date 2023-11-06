@@ -1,7 +1,7 @@
 var through = require('through2');
 var PluginError = require('plugin-error');
 var xpath = require('xpath');
-var dom = require('xmldom').DOMParser;
+var dom = require('@xmldom/xmldom').DOMParser;
 
 // consts
 const PLUGIN_NAME = 'gulp-xpath';
